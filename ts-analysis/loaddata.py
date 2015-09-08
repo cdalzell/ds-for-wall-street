@@ -33,8 +33,8 @@ def load_ticker_df(sqlContext, path):
     rdd = load_ticker_rdd(sqlContext._sc, path)
     fields = [ \
         StructField('timestamp', TimestampType(), True), \
-        StructField('page', StringType(), True), \
-        StructField('views', DoubleType(), True)]
+        StructField('symbol', StringType(), True), \
+        StructField('price', DoubleType(), True)]
     schema = StructType(fields)
     return sql_context.createDataFrame(rdd, schema)
 
