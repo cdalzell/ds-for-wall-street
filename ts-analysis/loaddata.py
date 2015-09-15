@@ -29,8 +29,8 @@ def load_ticker_rdd(sc, path):
 
     return sc.textFile(path).map(parse_line)
 
-def load_ticker_df(sqlContext, path):
-    rdd = load_ticker_rdd(sqlContext._sc, path)
+def load_ticker_df(sql_context, path):
+    rdd = load_ticker_rdd(sql_context._sc, path)
     fields = [ \
         StructField('timestamp', TimestampType(), True), \
         StructField('symbol', StringType(), True), \
