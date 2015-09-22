@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='ts-analysis',
+    name='tsanalysis',
     version='0.0.1',
     author='Sean Owen, Sandy Ryza, Juliet Hougland',
     author_email='sowen@cloudera.com, sryza@cloudera.com, juliet@cloudera.com',
