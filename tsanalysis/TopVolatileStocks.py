@@ -17,7 +17,7 @@ ticker_vol_aug_24 = [('one', 1.0),
                      ('four', 1.0),
                     ]
 
-def plotVolatilityOverTime(ticker_df):
+def plot_volatility_over_time(ticker_df):
     """Plots volatility of list of stocks over time. Not a great plot when
     there are many stocks.
     Parameters
@@ -33,14 +33,14 @@ def plotVolatilityOverTime(ticker_df):
     plt.savefig("img/vol_over_time.png")
     plt.close()
 
-def plotJointDist(ticker_df):
+def plot_joint_dist(ticker_df):
     g = sns.PairGrid(ticker_df)
     g.map(plt.scatter)
     print("Printing joint distribution")
     sns.plt.savefig('img/joint-dist')
     sns.plt.close()
 
-def plotKdeSmoothedJointDist(ticker_vol):
+def plot_kde_smoothed_joint_dist(ticker_vol):
     grid = sns.PairGrid(ticker_vol)
     grid.map_diag(sns.kdeplot)
     grid.map_offdiag(sns.kdeplot, cmap="Blues_d", n_levels=6)
@@ -57,6 +57,7 @@ def top_10(ticker_vol_pairs):
 if __name__ == "__main__":
     ticker_df = pd.DataFrame.from_items(volatile_tickers)
     indexed_ticker_df = ticker_df.set_index(datetimeidx)
-    plotVolatilityOverTime(indexed_ticker_df)
-    plotJointDist(indexed_ticker_df)
-    plotKdeSmoothedJointDist(indexed_ticker_df)
+    plot_volatility_over_time(indexed_ticker_df)
+    plot_joint_dist(indexed_ticker_df)
+    plot_kde_smoothed_joint_dist(indexed_ticker_df)
+
