@@ -10,7 +10,7 @@ setup(
     long_description='Source code to accompany "Data Science for Wall Street" tutorial at Hadoop World NYC 2015',
     install_requires=[
         'scipy==0.16.0',
-        'numpy==1.9.2'
+        'numpy==1.9.2',
         'matplotlib==1.4.3',
         'seaborn==0.6.0'
     ],
