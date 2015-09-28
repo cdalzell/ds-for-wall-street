@@ -1,9 +1,10 @@
 from pyspark.sql import SQLContext, Row
 
 lines = sc.textFile("/user/admin/Wikipedia/*")
-tokens = lines.map(lambda l: l.split("\t"))
-data = tokens.map(lambda t: Row(year=int(t[0]), month=int(t[1]), day=int(t[2]), hour=int(t[3]), page=t[4], hits=int(t[5])))
-
+def parse_line(line):
+    tokens = line.split('\t')
+    return Row(page=tokens[4], hits=int(tokens[5]))
+data = lines.map(parse_line)
 
 sqlContext = SQLContext(sc)
 wtDataFrame = sqlContext.createDataFrame(data)
