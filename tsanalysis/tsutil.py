@@ -38,7 +38,7 @@ def sample_daily(tsrdd, how):
         A condensed TimeSeriesRDD.
     """
     return time_series_rdd_from_pandas_series_rdd( \
-        ticker_tsrdd.to_pandas_series_rdd() \
+        tsrdd.to_pandas_series_rdd() \
             .mapValues(lambda x: x.resample('D', how=how)))
 
 
