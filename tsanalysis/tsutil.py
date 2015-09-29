@@ -39,6 +39,6 @@ def sample_daily(tsrdd, how):
     """
     return time_series_rdd_from_pandas_series_rdd( \
         tsrdd.to_pandas_series_rdd() \
-            .mapValues(lambda x: x.resample('D', how=how)))
+            .mapValues(lambda x: x.resample('D', how=how)), tsrdd.ctx)
 
 
